@@ -1,0 +1,100 @@
+.nav-container{
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.left-side{
+    margin-left: 3%;
+}
+
+.right-side-nav{
+    display: flex;
+    margin-left: 35%
+}
+
+.right-side-nav > a{
+    margin-right: 10%;
+}
+
+/* nav {
+    background-color: cornsilk;
+  } */
+  
+  nav a {
+    /* display: inline-block; */
+    /* margin: 1rem 2rem; */
+    text-decoration: none;
+    font-size: 1.2em;
+    color: rgb(8, 2, 2);
+    transition: 0.1s;
+}
+
+nav a:hover,
+nav a:active {
+    color: rgb(65, 55, 53);
+    border-bottom: 2px solid rgb(12, 5, 4);
+}
+
+nav a.active {
+    border-bottom: 2px solid rgb(236, 215, 215);
+    /* background-color: rgb(236, 229, 229); */
+    color: rgb(22, 18, 18);
+}
+
+
+/* song section css */
+
+.feed-container{
+    margin: 10px 10px 0 30px;
+}
+
+.song-card {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 10px 0;
+    width: 95%;
+    background: whitesmoke;
+    border-radius: 10px;
+}
+
+.song-card > img {
+    width: 250px;
+}
+
+.title-section{
+    display: flex;
+    justify-content: space-around;
+    width: 140%;
+}
+
+.right-side{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.right-side > button {
+    width: 25%;
+    height: 66%;
+    margin-top: 10px;
+}
+
+.comment-feed{
+    text-align: right;
+    width: 128%;
+}
+
+#comment-ul{
+    list-style: none;
+    overflow: scroll;
+    height: 85px;
+}
+
+#comment-ul > span{
+    font-size: small;
+}
+
+#posted-by{
+    margin-left: -65%;
+}
+  
