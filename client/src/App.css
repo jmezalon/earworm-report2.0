@@ -97,4 +97,12 @@ nav a.active {
 #posted-by{
     margin-left: -65%;
 }
+#cancel-button{
+    width: 50px;
+}
+
+#cancel-button:hover{
+    color: red;
+    cursor:default
+}
   

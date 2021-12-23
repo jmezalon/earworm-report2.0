@@ -1,25 +1,28 @@
+import { useState } from "react";
 import SongList from "./SongList";
-import { useState, useEffect } from "react";
 
-function Songs() {
-  const [songs, setSongs] = useState([]);
-
-  useEffect(() => {
-    fetch("/songs")
-      .then((r) => r.json())
-      .then(setSongs);
-  }, []);
-
+function Songs({ songs }) {
+  const [search, setSearch] = useState("");
+  const filterSong = songs.filter((s) =>
+    s.title.toLowerCase().includes(search.toLocaleLowerCase())
+  );
   return (
     <div className="feed-container">
       <h3>Search by Title</h3>
       <form action="searching">
-        <input type="text" name="search" id="" />
-        <button>Search</button>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </form>
-      {songs.map((song) => (
-        <SongList key={song.id} song={song} />
-      ))}
+      {filterSong
+        .sort((a, b) => b.id - a.id)
+        .map((song) => (
+          <SongList key={song.id} song={song} />
+        ))}
     </div>
   );
 }

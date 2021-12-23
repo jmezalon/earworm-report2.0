@@ -10,7 +10,7 @@ class SongsController < ApplicationController
     end
 
     def create
-        render json: @current_user.songs.create!(song_params), status: :created
+        render json: Song.create!(song_params), status: :created
     end
 
     def destroy
@@ -21,7 +21,7 @@ class SongsController < ApplicationController
     private
 
     def song_params
-        params.permit(:title, :image_url, :genre_id)
+        params.permit(:title, :img_url, :genre_id, :user_id)
     end
 
     def find_song

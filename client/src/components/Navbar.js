@@ -4,18 +4,18 @@ function Navbar() {
   return (
     <nav className="nav-container">
       <div className="left-side">
-        <NavLink to="/">
+        <NavLink exact to="/">
           <h1>Earworm Report</h1>
         </NavLink>
       </div>
       <div className="right-side-nav">
-        <NavLink to="/songs">
+        <NavLink exact to="/songs">
           <h3>Songs</h3>
         </NavLink>
-        <NavLink to="/songs/bypop">
+        <NavLink to="/songs/trending">
           <h3>Trending</h3>
         </NavLink>
-        <NavLink to="/songs/bygen">
+        <NavLink to="/songs/bygenres">
           <h3>Genre</h3>
         </NavLink>
         <NavLink to="/profile">

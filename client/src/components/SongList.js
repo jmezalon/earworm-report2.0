@@ -28,10 +28,10 @@ function SongList({ song }) {
         <div className="comment-feed">
           <ul id="comment-ul">
             {commentDisplay.map((c) => (
-              <>
-                <li key={c.id}>{c.comment_body}</li>
+              <div key={c.id}>
+                <li>{c.comment_body}</li>
                 <span> - {c.user.username}</span>
-              </>
+              </div>
             ))}
           </ul>
 
