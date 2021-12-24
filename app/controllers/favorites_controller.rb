@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        render json: @current_user.favorites.create!(favorite_params), status: :created
+        render json: Favorite.create!(favorite_params), status: :created
     end
 
     def destroy
@@ -17,10 +17,10 @@ class FavoritesController < ApplicationController
     private
 
     def favorite_params
-        params.permit(:song_id)
+        params.permit(:song_id, :user_id)
     end
 
     def find_favorite
-        @favorite = favorite.find(params[:id])
+        @favorite = Favorite.find(params[:id])
     end
 end

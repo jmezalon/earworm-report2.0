@@ -2,7 +2,7 @@ import SongList from "./SongList";
 import NewSongForm from "./NewSongForm";
 import { useState } from "react";
 
-function Profile({ songs, genres, onAddSong, onAddGenre }) {
+function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
   const [genreClick, setGenreClick] = useState(false);
   const [genre_name, setGenre_name] = useState("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ function Profile({ songs, genres, onAddSong, onAddGenre }) {
         genres={genres}
       />
       {songs.map((s) => (
-        <SongList key={s.id} song={s} />
+        <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
       ))}
     </div>
   );

@@ -32,6 +32,10 @@ function App() {
     setGenres([...genres, newGen]);
   }
 
+  function handleDeleteSong(id) {
+    setSongs(songs.filter((s) => s.id !== id));
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -52,6 +56,7 @@ function App() {
           <Profile
             songs={songs}
             genres={genres}
+            onDeleteSong={handleDeleteSong}
             onAddGenre={handleAddGenre}
             onAddSong={handleAddSong}
           />
