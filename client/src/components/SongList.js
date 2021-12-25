@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useRouteMatch } from "react-router-dom";
 
 function SongList({ song, onDeleteSong }) {
+  const { url } = useRouteMatch();
   const [comments, setcomment] = useState([]);
   const [favs, setFavs] = useState(song.favorites);
 
@@ -39,6 +41,12 @@ function SongList({ song, onDeleteSong }) {
     findMyFavorite();
   }
 
+  function handleDeleteSong() {
+    fetch(`/songs/${song.id}`, { method: "DELETE" }).then(() =>
+      onDeleteSong(song.id)
+    );
+  }
+
   return (
     <div className="song-card">
       <img src={song.img_url} alt="" />
@@ -72,6 +80,11 @@ function SongList({ song, onDeleteSong }) {
           </form>
         </div>
         <p id="posted-by">posted by: {song.user.username}</p>
+        {url === "/profile" && song.user.id === 1 && (
+          <button onClick={handleDeleteSong} style={{ color: "red" }}>
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );

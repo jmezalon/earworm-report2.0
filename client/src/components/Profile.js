@@ -1,10 +1,12 @@
 import SongList from "./SongList";
 import NewSongForm from "./NewSongForm";
 import { useState } from "react";
+import { useRouteMatch } from "react-router-dom";
 
 function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
   const [genreClick, setGenreClick] = useState(false);
   const [genre_name, setGenre_name] = useState("");
+  const { url } = useRouteMatch();
   const [formData, setFormData] = useState({
     title: "",
     img_url: "",
@@ -51,18 +53,20 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
   return (
     <div>
       <h3>Sample User</h3>
-      <NewSongForm
-        handleAddGenre={handleAddGenre}
-        handleAddSong={handleAddSong}
-        formData={formData}
-        setFormData={setFormData}
-        onHandleChange={onHandleChange}
-        genreClick={genreClick}
-        setGenreClick={setGenreClick}
-        genre_name={genre_name}
-        setGenre_name={setGenre_name}
-        genres={genres}
-      />
+      {url === "/profile" && (
+        <NewSongForm
+          handleAddGenre={handleAddGenre}
+          handleAddSong={handleAddSong}
+          formData={formData}
+          setFormData={setFormData}
+          onHandleChange={onHandleChange}
+          genreClick={genreClick}
+          setGenreClick={setGenreClick}
+          genre_name={genre_name}
+          setGenre_name={setGenre_name}
+          genres={genres}
+        />
+      )}
       {songs.map((s) => (
         <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
       ))}

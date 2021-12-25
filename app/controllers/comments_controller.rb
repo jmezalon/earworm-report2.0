@@ -26,6 +26,6 @@ class CommentsController < ApplicationController
     end
 
     def find_comment
-        @comment = comment.find(params[:id])
+        @comment = Comment.find(params[:id])
     end
 end
