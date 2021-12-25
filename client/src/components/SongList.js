@@ -3,8 +3,8 @@ import { useRouteMatch } from "react-router-dom";
 
 function SongList({ song, onDeleteSong }) {
   const { url } = useRouteMatch();
-  const [comments, setcomment] = useState([]);
   const [favs, setFavs] = useState(song.favorites);
+  const [comments, setcomment] = useState([]);
 
   useEffect(() => {
     fetch("/comments")
@@ -79,7 +79,9 @@ function SongList({ song, onDeleteSong }) {
             <button>add comment</button>
           </form>
         </div>
-        <p id="posted-by">posted by: {song.user.username}</p>
+        {url === "/songs" && song.user.id !== 1 && (
+          <p id="posted-by">posted by: {song.user.username}</p>
+        )}
         {url === "/profile" && song.user.id === 1 && (
           <button onClick={handleDeleteSong} style={{ color: "red" }}>
             Delete

@@ -105,4 +105,24 @@ nav a.active {
     color: red;
     cursor:default
 }
+
+.toggle-posted-favorite{
+    justify-content: space-around;
+    display: flex;
+    margin: 5% 0 5% 0;
+}
+
+.toggle-posted-favorite > button{
+    width: 22%;
+    height: 40px;
+    font-size: 1.5em;
+}
+
+.selected{
+    color: white;
+    background: darkgray;
+    font-weight: bold;
+}
+
+
   

@@ -1,10 +1,13 @@
 import SongList from "./SongList";
 import NewSongForm from "./NewSongForm";
+import ToggleButtons from "./ToggleButtons";
 import { useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 
 function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
+  const [isActive, setIsActive] = useState(true);
   const [genreClick, setGenreClick] = useState(false);
+
   const [genre_name, setGenre_name] = useState("");
   const { url } = useRouteMatch();
   const [formData, setFormData] = useState({
@@ -50,9 +53,14 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
     setGenreClick(false);
   }
 
+  const postedSongs = songs.filter((s) => s.user.id === 1);
+  const favSongs = songs.filter((s) =>
+    s.favorites.find((u) => u.user_id === 1)
+  );
   return (
     <div>
       <h3>Sample User</h3>
+      <ToggleButtons isActive={isActive} setIsActive={setIsActive} />
       {url === "/profile" && (
         <NewSongForm
           handleAddGenre={handleAddGenre}
@@ -67,9 +75,13 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
           genres={genres}
         />
       )}
-      {songs.map((s) => (
-        <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
-      ))}
+      {isActive
+        ? postedSongs.map((s) => (
+            <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
+          ))
+        : favSongs.map((s) => (
+            <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
+          ))}
     </div>
   );
 }
