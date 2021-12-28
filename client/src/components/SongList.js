@@ -95,16 +95,19 @@ function SongList({ song, favorites, setFavorites, onDeleteSong }) {
           <ul id="comment-ul">
             {commentDisplay.map((c) => (
               <div key={c.id}>
-                <li>{c.comment_body}</li>
-                <span> - {c.user.username}</span>
-                {c.user.id === 8 && (
-                  <p
-                    onClick={() => handleDeleteComment(c.id)}
-                    style={{ color: "red" }}
-                  >
-                    delete
-                  </p>
-                )}
+                <li>
+                  {c.comment_body} -{" "}
+                  {c.user.id === 8 && (
+                    <span
+                      onClick={() => handleDeleteComment(c.id)}
+                      style={{ color: "red" }}
+                    >
+                      delete
+                    </span>
+                  )}
+                </li>
+
+                {c.user.id !== 8 && <span> - {c.user.username}</span>}
               </div>
             ))}
           </ul>
