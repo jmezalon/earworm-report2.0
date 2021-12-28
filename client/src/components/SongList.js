@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-function SongList({ song, onDeleteSong }) {
+function SongList({ song, favorites, setFavorites, onDeleteSong }) {
   const { url } = useRouteMatch();
-  const [favs, setFavs] = useState(song.favorites);
   const [comments, setcomment] = useState([]);
+  const [commentBody, setCommentBody] = useState("");
 
   useEffect(() => {
     fetch("/comments")
@@ -16,9 +16,36 @@ function SongList({ song, onDeleteSong }) {
     (comment) => comment.song_id === song.id
   );
 
-  function findMyFavorite() {
-    return !!favs.find((f) => f.user_id === 1);
+  function handleAddComment(e) {
+    e.preventDefault();
+    fetch("/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        song_id: song.id,
+        comment_body: commentBody,
+      }),
+    })
+      .then((r) => r.json())
+      .then((newComment) => setcomment([...comments, newComment]));
+    setCommentBody("");
   }
+
+  function handleDeleteComment(id) {
+    fetch(`/comments/${id}`, {
+      method: "DELETE",
+    }).then(() => setcomment(comments.filter((c) => c.id !== id)));
+  }
+
+  function findMyFavorite() {
+    // need to update after session is created this and
+    // line 101, 123, 126
+    return !!favorites.find((f) => f.user_id === 8 && f.song_id === song.id);
+  }
+
+  const favCount = favorites.filter((f) => f.song_id === song.id);
 
   function handleLike(id) {
     fetch(`/favorites`, {
@@ -26,18 +53,18 @@ function SongList({ song, onDeleteSong }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: 1, song_id: id }),
+      body: JSON.stringify({ song_id: id }),
     })
       .then((r) => r.json())
-      .then((newFav) => setFavs([newFav, ...favs]));
+      .then((newFav) => setFavorites([newFav, ...favorites]));
     findMyFavorite();
   }
 
   function handleDeleteLike(id) {
-    let favId = favs.find((f) => f.song_id === id);
+    let favId = favorites.find((f) => f.song_id === id);
     fetch(`/favorites/${favId.id}`, {
       method: "DELETE",
-    }).then(() => setFavs(favs.filter((f) => f.id !== favId.id)));
+    }).then(() => setFavorites(favorites.filter((f) => f.id !== favId.id)));
     findMyFavorite();
   }
 
@@ -56,7 +83,7 @@ function SongList({ song, onDeleteSong }) {
             <h3>{song.title}</h3>
           </div>
           <div className="right-side">
-            <p>{favs.length} favorites</p>
+            <p>{favCount.length} favorites</p>
             {!findMyFavorite() ? (
               <button onClick={() => handleLike(song.id)}>like</button>
             ) : (
@@ -70,19 +97,32 @@ function SongList({ song, onDeleteSong }) {
               <div key={c.id}>
                 <li>{c.comment_body}</li>
                 <span> - {c.user.username}</span>
+                {c.user.id === 8 && (
+                  <p
+                    onClick={() => handleDeleteComment(c.id)}
+                    style={{ color: "red" }}
+                  >
+                    delete
+                  </p>
+                )}
               </div>
             ))}
           </ul>
 
-          <form>
-            <input type="text" name="comment" />
+          <form onSubmit={handleAddComment}>
+            <input
+              type="text"
+              name="commentBody"
+              onChange={(e) => setCommentBody(e.target.value)}
+              value={commentBody}
+            />
             <button>add comment</button>
           </form>
         </div>
-        {url === "/songs" && song.user.id !== 1 && (
+        {url === "/songs" && song.user.id !== 8 && (
           <p id="posted-by">posted by: {song.user.username}</p>
         )}
-        {url === "/profile" && song.user.id === 1 && (
+        {url === "/profile" && song.user.id === 8 && (
           <button onClick={handleDeleteSong} style={{ color: "red" }}>
             Delete
           </button>

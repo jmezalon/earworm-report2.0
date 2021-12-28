@@ -90,8 +90,8 @@ nav a.active {
     height: 85px;
 }
 
-#comment-ul > span{
-    font-size: small;
+#comment-ul > div > span{
+    font-size: x-small;
 }
 
 #posted-by{

@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
     before_action :find_song, only: [:show, :destroy]
+    before_action :current_user, only: :create
 
     def index
         render json: Song.all, status: :ok
@@ -10,7 +11,7 @@ class SongsController < ApplicationController
     end
 
     def create
-        render json: Song.create!(song_params), status: :created
+        render json: @current_user.songs.create!(song_params), status: :created
     end
 
     def destroy

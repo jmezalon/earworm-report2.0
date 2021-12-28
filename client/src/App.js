@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 function App() {
   const [songs, setSongs] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetch("/songs")
@@ -22,6 +23,12 @@ function App() {
     fetch("/genres")
       .then((r) => r.json())
       .then(setGenres);
+  }, []);
+
+  useEffect(() => {
+    fetch("/favorites")
+      .then((r) => r.json())
+      .then(setFavorites);
   }, []);
 
   function handleAddSong(newSong) {
@@ -36,6 +43,8 @@ function App() {
     setSongs(songs.filter((s) => s.id !== id));
   }
 
+  // need to create a user page that will be similar to profile
+
   return (
     <div className="App">
       <Navbar />
@@ -44,18 +53,33 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/songs">
-          <Songs songs={songs} />
+          <Songs
+            songs={songs}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
         </Route>
         <Route exact path="/songs/trending">
-          <Trending songs={songs} />
+          <Trending
+            songs={songs}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
         </Route>
         <Route exact path="/songs/bygenres">
-          <Genres songs={songs} genres={genres} />
+          <Genres
+            songs={songs}
+            genres={genres}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
         </Route>
         <Route exact path="/profile">
           <Profile
             songs={songs}
             genres={genres}
+            favorites={favorites}
+            setFavorites={setFavorites}
             onDeleteSong={handleDeleteSong}
             onAddGenre={handleAddGenre}
             onAddSong={handleAddSong}

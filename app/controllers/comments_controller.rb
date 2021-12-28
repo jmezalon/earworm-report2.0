@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :find_comment, only: [:update, :destroy]
+    before_action :current_user, only: :create
 
     def index
         render json: Comment.all, status: :ok
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:comment_body, :song_id)
+        params.permit(:user_id, :comment_body, :song_id)
     end
 
     def find_comment

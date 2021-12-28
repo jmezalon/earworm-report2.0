@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SongList from "./SongList";
 
-function Genres({ songs, genres }) {
+function Genres({ songs, favorites, setFavorites, genres }) {
   const [genreId, setGenreId] = useState("");
 
   const filteredSongs = songs.filter(
@@ -20,7 +20,12 @@ function Genres({ songs, genres }) {
       </select>
       {filteredSongs.length === 0 && <h3>Please select a genre</h3>}
       {filteredSongs.map((s) => (
-        <SongList key={s.id} song={s} />
+        <SongList
+          key={s.id}
+          song={s}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
       ))}
     </div>
   );

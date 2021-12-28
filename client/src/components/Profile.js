@@ -4,17 +4,23 @@ import ToggleButtons from "./ToggleButtons";
 import { useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
+function Profile({
+  songs,
+  genres,
+  favorites,
+  setFavorites,
+  onDeleteSong,
+  onAddSong,
+  onAddGenre,
+}) {
   const [isActive, setIsActive] = useState(true);
   const [genreClick, setGenreClick] = useState(false);
-
   const [genre_name, setGenre_name] = useState("");
   const { url } = useRouteMatch();
   const [formData, setFormData] = useState({
     title: "",
     img_url: "",
     genre_id: null,
-    user_id: 1,
   });
 
   function onHandleChange(e) {
@@ -36,7 +42,6 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
       title: "",
       img_url: "",
       genre_id: null,
-      user_id: 1,
     });
   }
 
@@ -53,10 +58,12 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
     setGenreClick(false);
   }
 
-  const postedSongs = songs.filter((s) => s.user.id === 1);
+  // update after session is created
+  const postedSongs = songs.filter((s) => s.user.id === 8);
   const favSongs = songs.filter((s) =>
-    s.favorites.find((u) => u.user_id === 1)
+    favorites.find((f) => f.user_id === 8 && f.song_id === s.id)
   );
+
   return (
     <div>
       <h3>Sample User</h3>
@@ -77,10 +84,22 @@ function Profile({ songs, genres, onDeleteSong, onAddSong, onAddGenre }) {
       )}
       {isActive
         ? postedSongs.map((s) => (
-            <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
+            <SongList
+              key={s.id}
+              favorites={favorites}
+              setFavorites={setFavorites}
+              onDeleteSong={onDeleteSong}
+              song={s}
+            />
           ))
         : favSongs.map((s) => (
-            <SongList key={s.id} onDeleteSong={onDeleteSong} song={s} />
+            <SongList
+              key={s.id}
+              setFavorites={setFavorites}
+              favorites={favorites}
+              onDeleteSong={onDeleteSong}
+              song={s}
+            />
           ))}
     </div>
   );

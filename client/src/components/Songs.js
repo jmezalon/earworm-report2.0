@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SongList from "./SongList";
 
-function Songs({ songs }) {
+function Songs({ songs, favorites, setFavorites }) {
   const [search, setSearch] = useState("");
   const filterSong = songs.filter((s) =>
     s.title.toLowerCase().includes(search.toLocaleLowerCase())
@@ -21,7 +21,12 @@ function Songs({ songs }) {
       {filterSong
         .sort((a, b) => b.id - a.id)
         .map((song) => (
-          <SongList key={song.id} song={song} />
+          <SongList
+            key={song.id}
+            favorites={favorites}
+            setFavorites={setFavorites}
+            song={song}
+          />
         ))}
     </div>
   );
