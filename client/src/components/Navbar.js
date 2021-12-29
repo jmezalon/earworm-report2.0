@@ -1,4 +1,4 @@
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 function Navbar({ user, setUser }) {
   const history = useHistory();

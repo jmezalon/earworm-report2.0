@@ -16,7 +16,7 @@ function Users({ songs, user, favorites, setFavorites }) {
 
   return (
     <div>
-      {id && <button onClick={history.goBack}>Go back</button>}
+      <button onClick={history.goBack}>Go back</button>
       <ToggleButtons isActive={isActive} setIsActive={setIsActive} />
       {isActive
         ? postedSongs.map((s) => (
