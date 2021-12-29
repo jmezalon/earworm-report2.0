@@ -39,7 +39,7 @@ function NoUserSongList({ song }) {
                 </div>
               ))}
           </ul>
-          <p>sign up to leave comments</p>
+          <p style={{ color: "red" }}>log in to leave comments</p>
           <p id="posted-by">posted by: {song.user.username}</p>
         </div>
       </div>

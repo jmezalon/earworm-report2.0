@@ -84,6 +84,14 @@ nav a.active {
     cursor: pointer;
 }
 
+#add-genre-button{
+    cursor: default;
+}
+
+#add-genre-button:hover {
+    color: red;
+}
+
 /* song section css */
 
 .feed-container{

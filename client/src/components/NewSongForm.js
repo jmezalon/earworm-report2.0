@@ -62,7 +62,10 @@ function NewSongForm({
             value={genre_name}
             placeholder="genre"
           />
-          <button onClick={handleAddGenre}>Add</button>
+          <span id="add-genre-button" onClick={handleAddGenre}>
+            Add
+          </span>
+          {"  |  "}
           <span
             onClick={() => {
               setGenreClick(false);
