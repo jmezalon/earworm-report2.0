@@ -1,6 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ user, setUser }) {
+  const history = useHistory();
+
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+        history.push("/");
+      }
+    });
+  }
   return (
     <nav className="nav-container">
       <div className="left-side">
@@ -18,9 +30,21 @@ function Navbar() {
         <NavLink to="/songs/bygenres">
           <h3>Genre</h3>
         </NavLink>
-        <NavLink to="/profile">
-          <h3>Me</h3>
-        </NavLink>
+        {user && (
+          <NavLink to="/profile">
+            <h3>{user.username}</h3>
+          </NavLink>
+        )}
+        {user && (
+          <NavLink to="/">
+            <h3 onClick={handleLogout}>Logout</h3>
+          </NavLink>
+        )}
+        {!user && (
+          <NavLink to="/auth">
+            <h3>Login</h3>
+          </NavLink>
+        )}
       </div>
     </nav>
   );

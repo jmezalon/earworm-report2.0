@@ -41,6 +41,48 @@ nav a.active {
     color: rgb(22, 18, 18);
 }
 
+.home-content{
+    text-align: center;
+    margin-top: 10%;
+}
+
+
+.login-signup-page{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.login-signup-page > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-signup-page > button {
+    width: 80px;
+    border: none;
+    background: white;
+    font-size: 1.3em;
+    text-align: start;
+    padding-left: 0;
+}
+
+.login-signup-page > form {
+    margin-bottom: 25px;
+}
+
+.login-signup-page > form > button {
+    width: 120px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.login-signup-page > button:hover{
+    color: rgb(230, 70, 7);
+    cursor: pointer;
+}
 
 /* song section css */
 

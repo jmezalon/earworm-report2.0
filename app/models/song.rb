@@ -4,6 +4,5 @@ class Song < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   
-  
-  validates :genre_id, presence: true
+  validates :genre_id, :title, presence: true
 end

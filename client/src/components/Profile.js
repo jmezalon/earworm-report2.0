@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 
 function Profile({
+  user,
   songs,
   genres,
   favorites,
@@ -15,6 +16,7 @@ function Profile({
 }) {
   const [isActive, setIsActive] = useState(true);
   const [genreClick, setGenreClick] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [genre_name, setGenre_name] = useState("");
   const { url } = useRouteMatch();
   const [formData, setFormData] = useState({
@@ -35,13 +37,18 @@ function Profile({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    })
-      .then((r) => r.json())
-      .then(onAddSong);
-    setFormData({
-      title: "",
-      img_url: "",
-      genre_id: null,
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(onAddSong);
+        setErrors([]);
+        setFormData({
+          title: "",
+          img_url: "",
+          genre_id: null,
+        });
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     });
   }
 
@@ -52,21 +59,24 @@ function Profile({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ genre_name }),
-    })
-      .then((r) => r.json())
-      .then(onAddGenre);
-    setGenreClick(false);
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(onAddGenre);
+        setErrors([]);
+        setGenreClick(false);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
 
-  // update after session is created
-  const postedSongs = songs.filter((s) => s.user.id === 8);
+  const postedSongs = songs.filter((s) => s.user.id === user.id);
   const favSongs = songs.filter((s) =>
-    favorites.find((f) => f.user_id === 8 && f.song_id === s.id)
+    favorites.find((f) => f.user_id === user.id && f.song_id === s.id)
   );
 
   return (
     <div>
-      <h3>Sample User</h3>
       <ToggleButtons isActive={isActive} setIsActive={setIsActive} />
       {url === "/profile" && (
         <NewSongForm
@@ -80,6 +90,7 @@ function Profile({
           genre_name={genre_name}
           setGenre_name={setGenre_name}
           genres={genres}
+          errors={errors}
         />
       )}
       {isActive
@@ -90,6 +101,7 @@ function Profile({
               setFavorites={setFavorites}
               onDeleteSong={onDeleteSong}
               song={s}
+              user={user}
             />
           ))
         : favSongs.map((s) => (
@@ -99,6 +111,7 @@ function Profile({
               favorites={favorites}
               onDeleteSong={onDeleteSong}
               song={s}
+              user={user}
             />
           ))}
     </div>

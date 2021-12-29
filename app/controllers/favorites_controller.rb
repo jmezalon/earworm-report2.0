@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
     before_action :find_favorite, only: :destroy
     before_action :current_user, only: :create
+    skip_before_action :authorize, only: :index
 
     def index
         render json: Favorite.all, status: :ok

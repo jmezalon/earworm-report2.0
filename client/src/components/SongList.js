@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-function SongList({ song, favorites, setFavorites, onDeleteSong }) {
+function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   const { url } = useRouteMatch();
   const [comments, setcomment] = useState([]);
   const [commentBody, setCommentBody] = useState("");
@@ -42,7 +42,9 @@ function SongList({ song, favorites, setFavorites, onDeleteSong }) {
   function findMyFavorite() {
     // need to update after session is created this and
     // line 101, 123, 126
-    return !!favorites.find((f) => f.user_id === 8 && f.song_id === song.id);
+    return !!favorites.find(
+      (f) => f.user_id === user.id && f.song_id === song.id
+    );
   }
 
   const favCount = favorites.filter((f) => f.song_id === song.id);
@@ -84,34 +86,39 @@ function SongList({ song, favorites, setFavorites, onDeleteSong }) {
           </div>
           <div className="right-side">
             <p>{favCount.length} favorites</p>
-            {!findMyFavorite() ? (
-              <button onClick={() => handleLike(song.id)}>like</button>
-            ) : (
-              <button onClick={() => handleDeleteLike(song.id)}>unlike</button>
-            )}
+            {!findMyFavorite()
+              ? user && (
+                  <button onClick={() => handleLike(song.id)}>like</button>
+                )
+              : user && (
+                  <button onClick={() => handleDeleteLike(song.id)}>
+                    unlike
+                  </button>
+                )}
           </div>
         </div>
         <div className="comment-feed">
           <ul id="comment-ul">
-            {commentDisplay.map((c) => (
-              <div key={c.id}>
-                <li>
-                  {c.comment_body} -{" "}
-                  {c.user.id === 8 && (
-                    <span
-                      onClick={() => handleDeleteComment(c.id)}
-                      style={{ color: "red" }}
-                    >
-                      delete
-                    </span>
-                  )}
-                </li>
+            {commentDisplay
+              .sort((a, b) => b.id - a.id)
+              .map((c) => (
+                <div key={c.id}>
+                  <li>
+                    {c.comment_body} -{" "}
+                    {c.user.id === user.id && (
+                      <span
+                        onClick={() => handleDeleteComment(c.id)}
+                        style={{ color: "red" }}
+                      >
+                        delete
+                      </span>
+                    )}
+                  </li>
 
-                {c.user.id !== 8 && <span> - {c.user.username}</span>}
-              </div>
-            ))}
+                  {c.user.id !== user.id && <span> - {c.user.username}</span>}
+                </div>
+              ))}
           </ul>
-
           <form onSubmit={handleAddComment}>
             <input
               type="text"
@@ -122,10 +129,10 @@ function SongList({ song, favorites, setFavorites, onDeleteSong }) {
             <button>add comment</button>
           </form>
         </div>
-        {url === "/songs" && song.user.id !== 8 && (
+        {url === "/songs" && song.user.id !== user.id && (
           <p id="posted-by">posted by: {song.user.username}</p>
         )}
-        {url === "/profile" && song.user.id === 8 && (
+        {url === "/profile" && song.user.id === user.id && (
           <button onClick={handleDeleteSong} style={{ color: "red" }}>
             Delete
           </button>

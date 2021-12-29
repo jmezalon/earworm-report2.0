@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     before_action :find_comment, only: [:update, :destroy]
     before_action :current_user, only: :create
+    skip_before_action :authorize, only: :index
 
     def index
         render json: Comment.all, status: :ok

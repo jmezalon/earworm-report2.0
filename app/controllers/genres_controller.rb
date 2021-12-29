@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+    skip_before_action :authorize, only: [:index]
 
     def create 
         render json: Genre.create!(genre_params), status: :created

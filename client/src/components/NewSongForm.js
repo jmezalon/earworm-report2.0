@@ -9,6 +9,7 @@ function NewSongForm({
   genre_name,
   setGenre_name,
   genres,
+  errors,
 }) {
   return (
     <form action="Add-song" onSubmit={handleAddSong}>
@@ -74,6 +75,11 @@ function NewSongForm({
         </>
       )}
       <button>Submit</button>
+      <>
+        {errors.map((err) => (
+          <p key={err}>{err}</p>
+        ))}
+      </>
     </form>
   );
 }

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import SongList from "./SongList";
+import NoUserSongList from "./NoUserSongList";
 
-function Songs({ songs, favorites, setFavorites }) {
+function Songs({ songs, user, favorites, setFavorites }) {
   const [search, setSearch] = useState("");
   const filterSong = songs.filter((s) =>
     s.title.toLowerCase().includes(search.toLocaleLowerCase())
   );
+
   return (
     <div className="feed-container">
       <h3>Search by Title</h3>
@@ -20,14 +22,19 @@ function Songs({ songs, favorites, setFavorites }) {
       </form>
       {filterSong
         .sort((a, b) => b.id - a.id)
-        .map((song) => (
-          <SongList
-            key={song.id}
-            favorites={favorites}
-            setFavorites={setFavorites}
-            song={song}
-          />
-        ))}
+        .map((song) =>
+          user ? (
+            <SongList
+              key={song.id}
+              favorites={favorites}
+              setFavorites={setFavorites}
+              song={song}
+              user={user}
+            />
+          ) : (
+            <NoUserSongList key={song.id} song={song} />
+          )
+        )}
     </div>
   );
 }

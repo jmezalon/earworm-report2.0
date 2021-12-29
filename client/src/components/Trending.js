@@ -1,6 +1,7 @@
 import SongList from "./SongList";
+import NoUserSongList from "./NoUserSongList";
 
-function Trending({ songs, favorites, setFavorites }) {
+function Trending({ songs, user, favorites, setFavorites }) {
   const sortedSongs = songs.sort(
     (a, b) => b.favorites.length - a.favorites.length
   );
@@ -10,14 +11,19 @@ function Trending({ songs, favorites, setFavorites }) {
   return (
     <div>
       <h1>Most popular songs</h1>
-      {sortedSongs.map((s) => (
-        <SongList
-          key={s.id}
-          song={s}
-          favorites={favorites}
-          setFavorites={setFavorites}
-        />
-      ))}
+      {sortedSongs.map((s) =>
+        user ? (
+          <SongList
+            user={user}
+            key={s.id}
+            song={s}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
+        ) : (
+          <NoUserSongList key={s.id} song={s} />
+        )
+      )}
     </div>
   );
 }

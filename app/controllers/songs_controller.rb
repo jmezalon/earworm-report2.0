@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
     before_action :find_song, only: [:show, :destroy]
     before_action :current_user, only: :create
+    skip_before_action :authorize, only: :index
 
     def index
         render json: Song.all, status: :ok
