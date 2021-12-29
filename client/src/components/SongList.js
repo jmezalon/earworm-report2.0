@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 
 function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   const { url } = useRouteMatch();
@@ -130,7 +130,10 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
           </form>
         </div>
         {url === "/songs" && song.user.id !== user.id && (
-          <p id="posted-by">posted by: {song.user.username}</p>
+          <p id="posted-by">
+            posted by:{" "}
+            <Link to={`users/${song.user.id}`}>{song.user.username}</Link>
+          </p>
         )}
         {url === "/profile" && song.user.id === user.id && (
           <button onClick={handleDeleteSong} style={{ color: "red" }}>

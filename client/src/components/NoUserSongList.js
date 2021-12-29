@@ -7,6 +7,9 @@ function NoUserSongList({ song }) {
     fetch("/comments")
       .then((r) => r.json())
       .then(setcomment);
+    return () => {
+      setcomment([]); // This worked for me
+    };
   }, []);
 
   const commentDisplay = comments.filter(

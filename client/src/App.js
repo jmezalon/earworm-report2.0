@@ -1,6 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Users from "./components/Users";
 import Auth from "./components/Auth";
 import Home from "./components/Home";
 import Songs from "./components/Songs";
@@ -103,6 +104,14 @@ function App() {
             onDeleteSong={handleDeleteSong}
             onAddGenre={handleAddGenre}
             onAddSong={handleAddSong}
+          />
+        </Route>
+        <Route exact path="/users/:id">
+          <Users
+            user={user}
+            songs={songs}
+            favorites={favorites}
+            setFavorites={setFavorites}
           />
         </Route>
         <Route extact to="/auth">
