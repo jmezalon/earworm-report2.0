@@ -7,7 +7,7 @@ function Auth({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const history = useHistory();
 

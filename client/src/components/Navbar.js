@@ -42,7 +42,7 @@ function Navbar({ user, setUser }) {
         )}
         {!user && (
           <NavLink to="/auth">
-            <h3>Login</h3>
+            <h3>Sign up</h3>
           </NavLink>
         )}
       </div>
