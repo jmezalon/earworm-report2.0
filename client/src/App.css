@@ -3,6 +3,7 @@ body {
 }
 
 .App {
+    margin: -10px;
     height: 100vh;
     overflow-y: scroll; 
     overflow-x: hidden;
@@ -13,9 +14,10 @@ body {
     display: flex;
     justify-content: space-around;
     background: pink;
-    height: 100px;
+    height: 75px;
+    width: 100%;
+    overflow-x: hidden;
     align-items: center;
-    border-radius: 10px;
 }
 
 .mobile-nav-container {
@@ -54,7 +56,9 @@ nav a.active {
 
 .home-content{
     text-align: center;
-    margin-top: 10%;
+    margin: 10% 7%;
+    height: 100vh;
+
 }
 
 
@@ -353,6 +357,32 @@ nav a.active {
     color: white;
 }
 
+.social-outlets {
+    width: 100%;
+    margin-left: auto;
+    position: absolute;
+    height: 7%;
+    bottom: 0%;
+    background: pink;
+    overflow-x: hidden;
+}
+
+.social-outlets > ul {
+    display: flex;
+    list-style: none;
+    margin-left: 40%;
+}
+
+.social-outlets > ul > li {
+    margin: 0 5%;
+}
+
+.social-outlets > ul > li > a {
+    color: white;
+    cursor: pointer;
+    font-size: 1.7em;
+}
+
 .mobile-trending {
     display: none;
 }
@@ -465,9 +495,10 @@ nav a.active {
         display: flex;
         justify-content: space-between;
         background: pink;
-        height: 100px;
+        height: 50px;
         align-items: center;
-        border-radius: 10px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .right-side-nav{
@@ -510,6 +541,19 @@ nav a.active {
     .mobile-trending > h4 > a {
         text-decoration: none;
         font-weight: bold;
+    }
+
+    .social-outlets {
+        position: absolute;
+        bottom: -1%;
+        width: 100%;
+    }
+
+
+    .social-outlets > ul {
+        padding-top: 2%;
+        margin: auto;
+        margin-left: 30%;
     }
     
 }
