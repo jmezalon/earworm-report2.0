@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-    skip_before_action :authorize, only: [:index, :destroy]
+    skip_before_action :authorize, only: [:index, :show, :destroy]
 
     def create 
         render json: Genre.create!(genre_params), status: :created
@@ -15,7 +15,7 @@ class GenresController < ApplicationController
 
     def destroy
         Genre.find(params[:id]).destroy
-        head: :no_content
+        head :no_content
     end
 
     private 
