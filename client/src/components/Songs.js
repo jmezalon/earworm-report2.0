@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SongList from "./SongList";
 import NoUserSongList from "./NoUserSongList";
 
@@ -20,6 +21,11 @@ function Songs({ songs, user, favorites, setFavorites }) {
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
+      <div className="mobile-trending">
+        <h4>
+          see who's <Link to="/songs/trending">trending</Link> ...
+        </h4>
+      </div>
       {filterSong
         .sort((a, b) => b.id - a.id)
         .map((song) =>

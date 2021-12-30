@@ -1,4 +1,5 @@
 import SongList from "./SongList";
+import { Link } from "react-router-dom";
 import NoUserSongList from "./NoUserSongList";
 
 function Trending({ songs, user, favorites, setFavorites }) {
@@ -6,11 +7,14 @@ function Trending({ songs, user, favorites, setFavorites }) {
     (a, b) => b.favorites.length - a.favorites.length
   );
 
-  //   console.log(favorites);
-  //need to get an update when the favorite count change and re-order the song list
   return (
     <div className="feed-container">
       <h1>Most popular songs</h1>
+      <div className="mobile-trending">
+        <h4>
+          search by <Link to="/songs/bygenres">genres</Link> ...
+        </h4>
+      </div>
       {sortedSongs.map((s) =>
         user ? (
           <SongList

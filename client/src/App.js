@@ -1,6 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import MobileNav from "./components/MobileNav";
 import Users from "./components/Users";
 import Auth from "./components/Auth";
 import Home from "./components/Home";
@@ -58,13 +59,10 @@ function App() {
     setUser(newUser);
   }
 
-  // if (!user) return
-
-  // need to create a user page that will be similar to profile
-
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} />
+      <MobileNav user={user} setUser={setUser} />
       <Switch>
         <Route exact path="/">
           <Home />

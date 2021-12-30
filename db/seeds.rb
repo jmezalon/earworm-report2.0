@@ -7,7 +7,7 @@ Comment.all.destroy_all
 Favorite.all.destroy_all
 
 
-dem = User.create(username: "Demo", password_digest: "demo")
+dem = User.create(username: "Kenny", password_digest: "ken1")
 max = User.create(username: "Maximax", password_digest: "max1")
 ger = User.create(username: "Gerald", password_digest: "gerald1")
 nik = User.create(username: "Nikki", password_digest: "nikki1")
@@ -56,24 +56,19 @@ Favorite.create!(user_id: ger.id, song_id: song7.id)
 
 
 
-Comment.create!(comment_body: 'yo, where do these guys get them lyrics', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'oh man, this is thriller', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'wow, simply wow!!!', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'omggggg', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'please do not let go', user_id: User.all.sample.id, song_id: song1.id)
-Comment.create!(comment_body: 'yes the victory belongs to Jesus', user_id: User.all.sample.id, song_id: Song.first.id)
+Comment.create!(comment_body: 'yo, where do these guys get them lyrics', user_id: dem.id, song_id: song5.id)
+Comment.create!(comment_body: 'oh man, this is my jam', user_id: chr.id, song_id: song7.id)
+Comment.create!(comment_body: 'wow, simply wow!!!', user_id: chr.id, song_id: song5.id)
+Comment.create!(comment_body: 'please do not let go', user_id: chr.id, song_id: song8.id)
 Comment.create!(comment_body: 'best song ever', user_id: chr.id, song_id: song3.id)
-Comment.create!(comment_body: 'I have this on repeat', user_id: User.all.sample.id, song_id: Song.all.sample.id)
+Comment.create!(comment_body: 'I have this on repeat', user_id: nik.id, song_id: song3.id)
 Comment.create!(comment_body: 'fok mwen marye kamen', user_id: max.id, song_id: song2.id)
 Comment.create!(comment_body: 'you better invite me, lol', user_id: nik.id, song_id: song2.id)
-Comment.create!(comment_body: 'my dream song', user_id: User.all.sample.id, song_id: song8.id)
-Comment.create!(comment_body: 'i love this song', user_id: User.all.sample.id, song_id: song3.id)
+Comment.create!(comment_body: 'i love this song', user_id: ger.id, song_id: song2.id)
 Comment.create!(comment_body: 'thumbs up', user_id: chr.id, song_id: song4.id)
-Comment.create!(comment_body: 'the best of the best', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'this is lit', user_id: dem.id, song_id: Song.all.sample.id)
+Comment.create!(comment_body: 'this is lit', user_id: ger.id, song_id: song8.id)
 Comment.create!(comment_body: 'i have to blast this one', user_id: ger.id, song_id: song6.id)
 Comment.create!(comment_body: 'omg i love hearing this song', user_id: nik.id, song_id: song1.id)
-Comment.create!(comment_body: 'why not!!!', user_id: User.all.sample.id, song_id: Song.all.sample.id)
-Comment.create!(comment_body: 'break the chains Jesus, please please please!!!', user_id: nik.id, song_id: song9.id)
+Comment.create!(comment_body: 'break the chains Jesus, please!!!', user_id: dem.id, song_id: song9.id)
 
 puts "done seeding!!!"

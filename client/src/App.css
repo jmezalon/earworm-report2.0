@@ -5,6 +5,7 @@ body {
 .App {
     height: 100vh;
     overflow-y: scroll; 
+    overflow-x: hidden;
 }
 
 
@@ -15,6 +16,10 @@ body {
     height: 100px;
     align-items: center;
     border-radius: 10px;
+}
+
+.mobile-nav-container {
+    display: none;
 }
 
 
@@ -179,8 +184,8 @@ nav a.active {
 .right-side > button:hover {
     font-size: 2.0em;
     background: hotpink;
-    border-radius: 50%;
-    width: 16%;
+    border-radius: 60%;
+    width: 20%;
 }
 
 .comment-feed{
@@ -342,6 +347,16 @@ nav a.active {
     background: white;
 }
 
+#delete-song-button:hover {
+    background: hotpink;
+    font-weight: bold;
+    color: white;
+}
+
+.mobile-trending {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     #search-form > input {
         width: 70%;
@@ -438,6 +453,63 @@ nav a.active {
     .new-song-form > button {
         width: 50%;
         margin: 1% 0;
+    }
+
+    /* Navbar css */
+
+    .nav-container {
+        display: none;
+    }
+
+    .mobile-nav-container {
+        display: flex;
+        justify-content: space-between;
+        background: pink;
+        height: 100px;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .right-side-nav{
+        display: flex;
+        width: 60%;
+    }
+    
+    .right-side-nav > a{
+        margin-right: -15px;
+    }
+      
+    nav a {
+        display: inline-block;
+        margin: 1rem 2rem;
+        text-decoration: none;
+        font-size: 1.2em;
+        color: black;
+        transition: 0.1s;
+    }
+    
+    nav a:hover,
+    nav a:active {
+        color: white;
+        border-bottom: 2px solid rgb(12, 5, 4);
+    }
+    
+    nav a.active {
+        border-bottom: 2px solid rgb(236, 215, 215);
+        color: rgb(22, 18, 18);
+    }
+
+    #login-tab {
+        margin-left: 100%;
+    }
+
+    .mobile-trending {
+        display: block;
+    }
+
+    .mobile-trending > h4 > a {
+        text-decoration: none;
+        font-weight: bold;
     }
     
 }
