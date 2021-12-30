@@ -76,7 +76,7 @@ function Profile({
   );
 
   return (
-    <div>
+    <div className="feed-container">
       <ToggleButtons isActive={isActive} setIsActive={setIsActive} />
       {url === "/profile" && (
         <NewSongForm

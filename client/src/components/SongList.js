@@ -93,13 +93,9 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
           <div className="right-side">
             <p>{favCount.length} favorites</p>
             {!findMyFavorite()
-              ? user && (
-                  <button onClick={() => handleLike(song.id)}>like</button>
-                )
+              ? user && <button onClick={() => handleLike(song.id)}>🤍</button>
               : user && (
-                  <button onClick={() => handleDeleteLike(song.id)}>
-                    unlike
-                  </button>
+                  <button onClick={() => handleDeleteLike(song.id)}>❤️</button>
                 )}
           </div>
         </div>
@@ -110,13 +106,13 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
               .map((c) => (
                 <div key={c.id}>
                   <li>
-                    {c.comment_body} -{" "}
+                    {c.comment_body}{" "}
                     {c.user.id === user.id && (
                       <span
+                        id="comment-delete"
                         onClick={() => handleDeleteComment(c.id)}
-                        style={{ color: "red" }}
                       >
-                        delete
+                        🗑️
                       </span>
                     )}
                   </li>
@@ -125,14 +121,15 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
                 </div>
               ))}
           </ul>
-          <form onSubmit={handleAddComment}>
+          <form className="comment-form" onSubmit={handleAddComment}>
             <input
               type="text"
               name="commentBody"
+              required={true}
               onChange={(e) => setCommentBody(e.target.value)}
               value={commentBody}
             />
-            <button>add comment</button>
+            <button>add</button>
           </form>
         </div>
         {url === "/songs" && song.user.id !== user.id && (
@@ -142,8 +139,8 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
           </p>
         )}
         {url === "/profile" && song.user.id === user.id && (
-          <button onClick={handleDeleteSong} style={{ color: "red" }}>
-            Delete
+          <button onClick={handleDeleteSong} id="delete-song-button">
+            Delete song
           </button>
         )}
       </div>

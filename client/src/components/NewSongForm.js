@@ -12,7 +12,7 @@ function NewSongForm({
   errors,
 }) {
   return (
-    <form action="Add-song" onSubmit={handleAddSong}>
+    <form className="new-song-form" action="Add-song" onSubmit={handleAddSong}>
       <label>
         <input
           aria-label="Title"
@@ -36,6 +36,7 @@ function NewSongForm({
       <label>Genre:</label>
       <select
         name="genre_id"
+        id="submit-song-genre-select"
         onChange={(e) =>
           setFormData({
             ...formData,
@@ -57,6 +58,7 @@ function NewSongForm({
         <>
           <label>genre name: </label>
           <input
+            id="genre-name-input"
             type="text"
             onChange={(e) => setGenre_name(e.target.value)}
             value={genre_name}

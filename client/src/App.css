@@ -82,7 +82,7 @@ nav a.active {
 }
 
 .submit-login-button:hover {
-    background: pink;
+    background: hotpink;
 }
 
 .option-last-button {
@@ -145,7 +145,7 @@ nav a.active {
 .title-section{
     display: flex;
     justify-content: space-between;
-    width: 127%;
+    width: 155%;
     align-items: center;
 }
 
@@ -158,12 +158,46 @@ nav a.active {
 .right-side > button {
     width: 25%;
     height: 66%;
+    font-size: 1.7em;
     margin-top: 10px;
+    border: none;
+    background: rgb(248,204,211);
+}
+
+.right-side > button:hover {
+    font-size: 2.0em;
+    background: hotpink;
+    border-radius: 50%;
+    width: 16%;
 }
 
 .comment-feed{
     text-align: right;
     width: 100%;
+}
+
+.comment-form > input {
+    border: none;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 3%;
+}
+
+.comment-form > button {
+    border: none;
+    background: white;
+    border-radius: 10px;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.comment-form > button:hover {
+    color: white;
+    background: hotpink;
+}
+
+#comment-delete {
+    cursor: pointer;
 }
 
 #comment-ul{
@@ -179,6 +213,17 @@ nav a.active {
 #posted-by{
     margin-left: -65%;
 }
+
+#posted-by > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#posted-by > a:hover {
+    color: red;
+}
+
 #cancel-button{
     width: 50px;
 }
@@ -196,6 +241,60 @@ nav a.active {
     border-radius: 10px;
 }
 
+#genre-name-input {
+    margin: 0 10px 0 10px;
+    background: pink;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#submit-song-genre-select {
+    border: none;
+    background: pink;
+    height: 30px;
+    border-radius: 10px;
+    width: 11%;
+    margin: 0 10px 0 10px;
+}
+
+.new-song-form > label > input {
+    margin: 0 10px 0 10px;
+    background: pink;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#go-back-button {
+    border: none;
+    background: pink;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 7%;
+    margin-left: -888px;
+}
+
+#go-back-button:hover {
+    color: white;
+    background: hotpink;
+}
+
+.new-song-form > button {
+    border: none;
+    background: pink;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 7%;
+}
+
+.new-song-form > button:hover {
+    color: white;
+    background: hotpink;
+}
+
 .toggle-posted-favorite{
     justify-content: space-around;
     display: flex;
@@ -206,12 +305,29 @@ nav a.active {
     width: 22%;
     height: 40px;
     font-size: 1.5em;
+    border: none;
+    border-radius: 10px;
+}
+
+.toggle-posted-favorite > button:hover {
+    color: white;
+    background: hotpink;
 }
 
 .selected{
     color: white;
-    background: darkgray;
+    background: pink;
     font-weight: bold;
+}
+
+#delete-song-button {
+    margin-top: 6%;
+    border: none;
+    color: red;
+    border-radius: 10px;
+    height: 25px; 
+    margin-left: -220px;
+    background: white;
 }
 
 
