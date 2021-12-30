@@ -1,43 +1,38 @@
 .nav-container{
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-around;
+    background: pink;
+    height: 100px;
+    align-items: center;
 }
 
-.left-side{
-    margin-left: 3%;
-}
 
 .right-side-nav{
     display: flex;
-    margin-left: 35%
+    width: 35%;
 }
 
 .right-side-nav > a{
     margin-right: 10%;
 }
-
-/* nav {
-    background-color: cornsilk;
-  } */
   
-  nav a {
-    /* display: inline-block; */
-    /* margin: 1rem 2rem; */
+nav a {
+    display: inline-block;
+    margin: 1rem 2rem;
     text-decoration: none;
     font-size: 1.2em;
-    color: rgb(8, 2, 2);
+    color: black;
     transition: 0.1s;
 }
 
 nav a:hover,
 nav a:active {
-    color: rgb(65, 55, 53);
+    color: white;
     border-bottom: 2px solid rgb(12, 5, 4);
 }
 
 nav a.active {
     border-bottom: 2px solid rgb(236, 215, 215);
-    /* background-color: rgb(236, 229, 229); */
     color: rgb(22, 18, 18);
 }
 
@@ -47,37 +42,56 @@ nav a.active {
 }
 
 
-.login-signup-page{
+.login-signup-page {
     display: flex;
     flex-direction: column;
     width: 30%;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
+    background: pink;
+    padding: 2%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1em;
 }
 
-.login-signup-page > form {
+.login-form {
+    height: 200px;
+    text-align: center;
     display: flex;
     flex-direction: column;
 }
 
-.login-signup-page > button {
-    width: 80px;
-    border: none;
-    background: white;
+.login-form > input {
+    width: 50%;
+    margin: auto;
+    height: 25px;
+}
+
+
+.submit-login-button {
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 10px;
+    width: 30%;
+    color: white;
+    background: radial-gradient(black, transparent);
     font-size: 1.3em;
-    text-align: start;
+    text-align: center;
     padding-left: 0;
 }
 
-.login-signup-page > form {
-    margin-bottom: 25px;
+.submit-login-button:hover {
+    background: pink;
 }
 
-.login-signup-page > form > button {
-    width: 120px;
+.option-last-button {
     margin: auto;
-    margin-top: 10px;
+    border: none;
+    background: pink;
+    font-size: 1em;
 }
+
 
 .login-signup-page > button:hover{
     color: rgb(230, 70, 7);
@@ -95,31 +109,49 @@ nav a.active {
 /* song section css */
 
 .feed-container{
-    margin: 10px 10px 0 30px;
+    margin: 10px 8% 0 8%;
+    text-align: center;
+}
+
+#search-form > input{
+    width: 30%;
+    height: 30px;
+    background: pink;
+    color: black;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
 }
 
 .song-card {
     display: flex;
     justify-content: space-around;
-    margin: 20px 0 10px 0;
+    margin: 27px 0 10px 0;
     width: 95%;
-    background: whitesmoke;
+    background: rgb(248,204,211);
     border-radius: 10px;
+    padding: 1% 0;
 }
 
-.song-card > img {
+.song-card-img > img {
     width: 250px;
+    height: 240px;
+}
+
+.song-content{
+    width: 25%;
 }
 
 .title-section{
     display: flex;
-    justify-content: space-around;
-    width: 140%;
+    justify-content: space-between;
+    width: 127%;
+    align-items: center;
 }
 
 .right-side{
     display: flex;
-    width: 50%;
+    width: 60%;
     justify-content: space-evenly;
 }
 
@@ -131,7 +163,7 @@ nav a.active {
 
 .comment-feed{
     text-align: right;
-    width: 128%;
+    width: 100%;
 }
 
 #comment-ul{
@@ -154,6 +186,14 @@ nav a.active {
 #cancel-button:hover{
     color: red;
     cursor:default
+}
+
+.genre-select{
+    width: 20%;
+    height: 30px;
+    background: pink;
+    border: none;
+    border-radius: 10px;
 }
 
 .toggle-posted-favorite{

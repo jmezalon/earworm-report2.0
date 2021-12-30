@@ -65,7 +65,7 @@ function Auth({ onLogin }) {
     <div className="login-signup-page">
       {isLogin ? (
         <>
-          <form onSubmit={handleLogin}>
+          <form className="login-form" onSubmit={handleLogin}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -80,7 +80,9 @@ function Auth({ onLogin }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button>{isLoading ? "Loading..." : "Login"}</button>
+            <button className="submit-login-button">
+              {isLoading ? "Loading..." : "Login"}
+            </button>
             <>
               {errors.map((err) => (
                 <p key={err}>{err}</p>
@@ -88,12 +90,17 @@ function Auth({ onLogin }) {
             </>
           </form>
           <p>Don't have an accont?</p>{" "}
-          <button onClick={() => setIsLogin(false)}>Sign up</button>
+          <button
+            className="option-last-button"
+            onClick={() => setIsLogin(false)}
+          >
+            Sign up
+          </button>
         </>
       ) : (
         <>
-          <form onSubmit={handleSignup}>
-            <label htmlFor="username">Username:</label>
+          <form className="login-form" onSubmit={handleSignup}>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               name="username"
@@ -114,7 +121,9 @@ function Auth({ onLogin }) {
               value={passwordConfirmation}
               onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
-            <button>{isLoading ? "Loading..." : "sign up"}</button>
+            <button className="submit-login-button">
+              {isLoading ? "Loading..." : "sign up"}
+            </button>
             <>
               {errors.map((err) => (
                 <p key={err}>{err}</p>
@@ -122,7 +131,12 @@ function Auth({ onLogin }) {
             </>
           </form>
           <p>Already have an account?</p>{" "}
-          <button onClick={() => setIsLogin(true)}>login</button>
+          <button
+            className="option-last-button"
+            onClick={() => setIsLogin(true)}
+          >
+            login
+          </button>
         </>
       )}
     </div>

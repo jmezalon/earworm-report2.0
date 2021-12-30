@@ -9,7 +9,7 @@ function Trending({ songs, user, favorites, setFavorites }) {
   //   console.log(favorites);
   //need to get an update when the favorite count change and re-order the song list
   return (
-    <div>
+    <div className="feed-container">
       <h1>Most popular songs</h1>
       {sortedSongs.map((s) =>
         user ? (

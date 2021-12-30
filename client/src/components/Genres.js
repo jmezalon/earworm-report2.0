@@ -9,9 +9,13 @@ function Genres({ songs, user, favorites, setFavorites, genres }) {
     (song) => song.genre_id === parseInt(genreId)
   );
   return (
-    <div>
+    <div className="feed-container">
       <h1>Filter by your favorite genre:</h1>
-      <select name="genreId" onChange={(e) => setGenreId(e.target.value)}>
+      <select
+        className="genre-select"
+        name="genreId"
+        onChange={(e) => setGenreId(e.target.value)}
+      >
         <option value=""></option>
         {genres.map((genre) => (
           <option key={genre.id} value={genre.id}>

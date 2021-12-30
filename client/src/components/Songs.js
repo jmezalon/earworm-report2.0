@@ -11,7 +11,7 @@ function Songs({ songs, user, favorites, setFavorites }) {
   return (
     <div className="feed-container">
       <h3>Search by Title</h3>
-      <form action="searching">
+      <form id="search-form" action="searching">
         <input
           type="text"
           name="search"

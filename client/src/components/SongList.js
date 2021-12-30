@@ -40,8 +40,6 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   }
 
   function findMyFavorite() {
-    // need to update after session is created this and
-    // line 101, 123, 126
     return !!favorites.find(
       (f) => f.user_id === user.id && f.song_id === song.id
     );
@@ -78,7 +76,15 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
 
   return (
     <div className="song-card">
-      <img src={song.img_url} alt="" />
+      <div className="song-card-img">
+        <img
+          src={
+            song.img_url ||
+            "https://www.apple.com/v/apple-music/s/images/shared/og__ckjrh2mu8b2a_image.png"
+          }
+          alt={song.title}
+        />
+      </div>
       <div className="song-content">
         <div className="title-section">
           <div className="left-side">
