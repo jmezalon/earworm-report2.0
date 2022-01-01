@@ -1,7 +1,6 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
 import Users from "./components/Users";
 import Auth from "./components/Auth";
@@ -117,7 +116,6 @@ function App() {
           <Auth onLogin={handleLogin} />
         </Route>
       </Switch>
-      <Footer />
     </div>
   );
 }

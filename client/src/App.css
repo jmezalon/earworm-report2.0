@@ -357,7 +357,7 @@ nav a.active {
     color: white;
 }
 
-.social-outlets {
+/* .social-outlets {
     width: 100%;
     margin-left: auto;
     position: absolute;
@@ -387,7 +387,7 @@ nav a.active {
     cursor: pointer;
     font-size: 1.8em;
     background: hotpink;
-}
+} */
 
 .mobile-trending {
     display: none;
@@ -549,7 +549,7 @@ nav a.active {
         font-weight: bold;
     }
 
-    .social-outlets {
+    /* .social-outlets {
         position: absolute;
         bottom: -1%;
         width: 100%;
@@ -560,7 +560,7 @@ nav a.active {
         padding-top: 2%;
         margin: auto;
         margin-left: 30%;
-    }
+    } */
     
 }
   
