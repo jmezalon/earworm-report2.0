@@ -2,7 +2,7 @@
 
 [live](https://safe-cliffs-37697.herokuapp.com/)
 
-This project was a final challenge on my first bootcamp, Pursuit 3 years ago. This is the link to the original [earworm-report](https://github.com/jmezalon/Earworm-report).
+This project was a final challenge on my first bootcamp, Pursuit 3 years ago. This is the github link to the original [earworm-report](https://github.com/jmezalon/Earworm-report).
 
 I wanted to do it over to see how much I've grown as developer since then. During this 3 year period I stopped coding for a year in a half. Being that coding is my passion, I could not stop thinking about working as a developer while I was driving for Uber.
 Consequently, I joined Flatiron school and begun coding again. Anyone could see the growth, if you look at the code that I have in the original version above in contrast to this one. I have more components in this iteration, I repeat less code (DRY) and the way I structure my components made it easier for me to reused the SonList component over and over.
