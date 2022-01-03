@@ -7,7 +7,7 @@ function Auth({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const history = useHistory();
 
@@ -24,7 +24,7 @@ function Auth({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/songs");
+        history.push("/list/songs");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -51,7 +51,7 @@ function Auth({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/songs");
+        history.push("/list/songs");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

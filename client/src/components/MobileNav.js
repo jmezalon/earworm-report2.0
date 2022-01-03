@@ -9,7 +9,7 @@ function MobileNav({ user, setUser }) {
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        history.push("/");
+        history.push("/list/songs");
       }
     });
   }
@@ -21,7 +21,7 @@ function MobileNav({ user, setUser }) {
         </NavLink>
       </div>
       <div className="right-side-nav">
-        <NavLink exact to="/songs">
+        <NavLink exact to="/list/songs">
           <h4>Songs</h4>
         </NavLink>
         {user && (

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :comments, only: [:index, :create, :update, :destroy]
   resources :favorites, only: [:index, :create, :destroy]
-  resources :songs, only: [:index, :show, :create, :destroy]
+  resources :songs
   resources :genres, only: [:index, :show, :destroy, :create]
   resources :users, only: [:index, :destroy]
   

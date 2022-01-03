@@ -67,7 +67,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/songs">
+        <Route exact path="/list/songs">
           <Songs
             user={user}
             songs={songs}
@@ -75,7 +75,7 @@ function App() {
             setFavorites={setFavorites}
           />
         </Route>
-        <Route exact path="/songs/trending">
+        <Route exact path="/list/songs/trending">
           <Trending
             user={user}
             songs={songs}
@@ -83,7 +83,7 @@ function App() {
             setFavorites={setFavorites}
           />
         </Route>
-        <Route exact path="/songs/bygenres">
+        <Route exact path="/list/songs/bygenres">
           <Genres
             user={user}
             songs={songs}

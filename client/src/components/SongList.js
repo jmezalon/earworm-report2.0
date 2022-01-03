@@ -132,7 +132,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
             <button>add</button>
           </form>
         </div>
-        {url === "/songs" && song.user.id !== user.id && (
+        {url === "/list/songs" && song.user.id !== user.id && (
           <p id="posted-by">
             posted by:{" "}
             <Link to={`users/${song.user.id}`}>{song.user.username}</Link>

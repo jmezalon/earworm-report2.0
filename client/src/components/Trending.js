@@ -12,7 +12,7 @@ function Trending({ songs, user, favorites, setFavorites }) {
       <h1>Most popular songs</h1>
       <div className="mobile-trending">
         <h4>
-          search by <Link to="/songs/bygenres">genres</Link> ...
+          search by <Link to="/list/songs/bygenres">genres</Link> ...
         </h4>
       </div>
       {sortedSongs.map((s) =>

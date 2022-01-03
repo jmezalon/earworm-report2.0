@@ -9,7 +9,7 @@ function Navbar({ user, setUser }) {
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        history.push("/");
+        history.push("/list/songs");
       }
     });
   }
@@ -21,13 +21,13 @@ function Navbar({ user, setUser }) {
         </NavLink>
       </div>
       <div className="right-side-nav">
-        <NavLink exact to="/songs">
+        <NavLink exact to="/list/songs">
           <h3>Songs</h3>
         </NavLink>
-        <NavLink to="/songs/trending">
+        <NavLink to="/list/songs/trending">
           <h3>Trending</h3>
         </NavLink>
-        <NavLink to="/songs/bygenres">
+        <NavLink to="/list/songs/bygenres">
           <h3>Genre</h3>
         </NavLink>
         {user && (
@@ -42,7 +42,7 @@ function Navbar({ user, setUser }) {
         )}
         {!user && (
           <NavLink to="/auth">
-            <h3>Sign up</h3>
+            <h3>Login</h3>
           </NavLink>
         )}
       </div>
