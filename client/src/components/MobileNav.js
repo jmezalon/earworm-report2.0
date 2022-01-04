@@ -2,7 +2,7 @@ import { NavLink, useHistory } from "react-router-dom";
 
 function MobileNav({ user, setUser }) {
   const history = useHistory();
-  const justifyContent = user ? "space-between" : "flex-start";
+  const justifyContent = user ? "space-between" : "space-evenly";
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -32,14 +32,14 @@ function MobileNav({ user, setUser }) {
         <NavLink exact to="/list/songs">
           <h4>Songs</h4>
         </NavLink>
-        {user && (
-          <NavLink exact to="/">
-            <h4 onClick={handleLogout}>Logout</h4>
-          </NavLink>
-        )}
         {!user && (
           <NavLink to="/auth">
             <h4 id="login-tab">Login</h4>
+          </NavLink>
+        )}
+        {user && (
+          <NavLink exact to="/">
+            <h4 onClick={handleLogout}>Logout</h4>
           </NavLink>
         )}
       </div>

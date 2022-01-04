@@ -12,6 +12,7 @@ body {
 
 .nav-container{
     display: flex;
+    justify-content: space-between;
     background: pink;
     height: 75px;
     width: 100%;
@@ -27,9 +28,9 @@ body {
 .right-side-nav{
     display: flex;
     justify-content: space-between;
-    width: 60%;
-    position: absolute;
-    right: 90px;
+    width: 50%;
+    position: relative;
+    right: 110px;
 }
 
 .right-side-nav > a{
@@ -418,12 +419,13 @@ nav a.active {
     }
 
     .title-section {
-        justify-content: stretch;
+        justify-content: space-between;
         width: 100%;
     }
 
     .left-side {
         font-size: 0.9em;
+        margin-right: 10%;
     }
 
     .comment-feed {
@@ -444,9 +446,9 @@ nav a.active {
     }
 
     .right-side {
-        width: 40%;
-        position: absolute;
-        right: 15px;
+        width: 35%;
+        position: static;
+        /* right: 35%; */
     }
     
     .right-side > button {
@@ -522,13 +524,11 @@ nav a.active {
     .right-side-nav{
         display: flex;
         justify-content: space-between;
-        width: 35%;
-        /* position: absolute;
-        right: 95px; */
+        width: 40%;
     }
     
     .right-side-nav > a{
-        margin-right: -3.7em;
+        margin-right: -4.7em;
     }
       
     nav a {
@@ -552,7 +552,7 @@ nav a.active {
     }
 
     #login-tab {
-        margin-left: 200%;
+        margin-left: 100%;
     }
 
     .mobile-trending {
