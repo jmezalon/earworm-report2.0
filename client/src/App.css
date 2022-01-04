@@ -151,7 +151,7 @@ nav a.active {
     display: flex;
     justify-content: space-around;
     margin: 27px 0 10px 0;
-    width: 95%;
+    width: 100%;
     background: pink;
     border-radius: 10px;
     padding: 1% 0;
@@ -163,19 +163,19 @@ nav a.active {
 }
 
 .song-content{
-    width: 30%;
+    width: 40%;
 }
 
 .title-section{
     display: flex;
     justify-content: space-between;
-    width: 130%;
+    width: 113%;
     align-items: center;
 }
 
 .right-side{
     display: flex;
-    width: 60%;
+    width: 50%;
     justify-content: space-evenly;
 }
 
@@ -333,14 +333,19 @@ nav a.active {
     border-radius: 10px;
 }
 
+.unselected {
+    color: black;
+    background: pink;
+}
+
 .toggle-posted-favorite > button:hover {
     color: white;
-    background: hotpink;
+    background: rgb(248, 162, 205);
 }
 
 .selected{
     color: white;
-    background: pink;
+    background: hotpink;
     font-weight: bold;
 }
 
@@ -425,7 +430,7 @@ nav a.active {
 
     .left-side {
         font-size: 0.9em;
-        margin-right: 10%;
+        /* margin-right: 10%; */
     }
 
     .comment-feed {
@@ -446,9 +451,8 @@ nav a.active {
     }
 
     .right-side {
-        width: 35%;
+        width: 42%;
         position: static;
-        /* right: 35%; */
     }
     
     .right-side > button {

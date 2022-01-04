@@ -3,13 +3,13 @@ function ToggleButtons({ isActive, setIsActive }) {
     <div className="toggle-posted-favorite">
       <button
         onClick={() => setIsActive(true)}
-        className={isActive ? "selected" : ""}
+        className={isActive ? "selected" : "unselected"}
       >
         Posted
       </button>
       <button
         onClick={() => setIsActive(false)}
-        className={isActive ? "" : "selected"}
+        className={isActive ? "unselected" : "selected"}
       >
         Favorites
       </button>
