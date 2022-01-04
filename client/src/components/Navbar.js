@@ -15,7 +15,7 @@ function Navbar({ user, setUser }) {
   }
   return (
     <nav className="nav-container">
-      <div className="left-side">
+      <div className="left-side-nav">
         <NavLink exact to="/">
           <h1>Earworm Report</h1>
         </NavLink>

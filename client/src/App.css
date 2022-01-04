@@ -12,7 +12,6 @@ body {
 
 .nav-container{
     display: flex;
-    justify-content: space-around;
     background: pink;
     height: 75px;
     width: 100%;
@@ -27,7 +26,10 @@ body {
 
 .right-side-nav{
     display: flex;
-    width: 35%;
+    justify-content: space-between;
+    width: 60%;
+    position: absolute;
+    right: 90px;
 }
 
 .right-side-nav > a{
@@ -160,13 +162,13 @@ nav a.active {
 }
 
 .song-content{
-    width: 25%;
+    width: 30%;
 }
 
 .title-section{
     display: flex;
     justify-content: space-between;
-    width: 155%;
+    width: 130%;
     align-items: center;
 }
 
@@ -237,7 +239,7 @@ nav a.active {
 
 #posted-by > a {
     text-decoration: none;
-    color: black;
+    color: blueviolet;
     font-weight: bold;
 }
 
@@ -293,8 +295,8 @@ nav a.active {
     margin: 0 10px 0 10px;
     border-radius: 10px;
     height: 30px;
-    width: 7%;
-    margin-left: -888px;
+    width: 11%;
+    margin-left: -90%;
 }
 
 #go-back-button:hover {
@@ -416,8 +418,8 @@ nav a.active {
     }
 
     .title-section {
-        justify-content: space-between;
-        width: 120%;
+        justify-content: stretch;
+        width: 100%;
     }
 
     .left-side {
@@ -442,8 +444,9 @@ nav a.active {
     }
 
     .right-side {
-        width: 47%;
-        margin-right: 12%;
+        width: 40%;
+        position: absolute;
+        right: 15px;
     }
     
     .right-side > button {
@@ -491,6 +494,11 @@ nav a.active {
         margin: 1% 0;
     }
 
+    #go-back-button {
+        margin-left: -77%;
+        width: 22%;
+    }
+
     /* Navbar css */
 
     .nav-container {
@@ -507,13 +515,20 @@ nav a.active {
         overflow-x: hidden;
     }
 
+    .left-side-nav {
+        font-size: 0.9em;
+    }
+
     .right-side-nav{
         display: flex;
-        width: 60%;
+        justify-content: space-between;
+        width: 35%;
+        /* position: absolute;
+        right: 95px; */
     }
     
     .right-side-nav > a{
-        margin-right: -15px;
+        margin-right: -3.7em;
     }
       
     nav a {
@@ -537,7 +552,7 @@ nav a.active {
     }
 
     #login-tab {
-        margin-left: 100%;
+        margin-left: 200%;
     }
 
     .mobile-trending {

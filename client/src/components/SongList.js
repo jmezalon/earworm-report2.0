@@ -135,7 +135,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
         {url === "/list/songs" && song.user.id !== user.id && (
           <p id="posted-by">
             posted by:{" "}
-            <Link to={`users/${song.user.id}`}>{song.user.username}</Link>
+            <Link to={`/list/users/${song.user.id}`}>{song.user.username}</Link>
           </p>
         )}
         {url === "/profile" && song.user.id === user.id && (

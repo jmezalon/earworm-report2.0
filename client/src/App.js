@@ -104,7 +104,7 @@ function App() {
             onAddSong={handleAddSong}
           />
         </Route>
-        <Route exact path="/users/:id">
+        <Route exact path="/list/users/:id">
           <Users
             user={user}
             songs={songs}
