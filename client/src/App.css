@@ -28,18 +28,18 @@ body {
 .right-side-nav{
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 47%;
     position: relative;
     right: 110px;
 }
 
 .right-side-nav > a{
-    margin-right: 2%;
+    margin-right: -9.5%;
 }
   
 nav a {
     display: inline-block;
-    margin: 1rem 2rem;
+    margin: 1rem 4rem 0 3.8rem;
     text-decoration: none;
     font-size: 1.2em;
     color: black;
@@ -68,7 +68,7 @@ nav a.active {
 .login-signup-page {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 50%;
     margin: auto;
     margin-top: 10%;
     background: pink;
@@ -134,10 +134,11 @@ nav a.active {
 .feed-container{
     margin: 10px 8% 0 8%;
     text-align: center;
+    margin-bottom: 10%;
 }
 
 #search-form > input{
-    width: 30%;
+    width: 50%;
     height: 30px;
     background: pink;
     color: black;
@@ -258,7 +259,7 @@ nav a.active {
 }
 
 .genre-select{
-    width: 20%;
+    width: 38%;
     height: 30px;
     background: pink;
     border: none;
@@ -271,6 +272,7 @@ nav a.active {
     border: none;
     border-radius: 10px;
     height: 30px;
+    width: 120px;
 }
 
 #submit-song-genre-select {
@@ -280,6 +282,7 @@ nav a.active {
     border-radius: 10px;
     width: 11%;
     margin: 0 10px 0 10px;
+    color: black;
 }
 
 .new-song-form > label > input {
@@ -288,6 +291,7 @@ nav a.active {
     border: none;
     border-radius: 10px;
     height: 30px;
+    width: 110px;
 }
 
 #go-back-button {
@@ -307,11 +311,16 @@ nav a.active {
 
 .new-song-form > button {
     border: none;
+    color: black;
     background: pink;
     margin: 0 10px 0 10px;
     border-radius: 10px;
     height: 30px;
-    width: 9%;
+    width:9%;
+}
+
+#new-genre-button {
+    width: 13%;
 }
 
 .new-song-form > button:hover {
@@ -355,7 +364,7 @@ nav a.active {
     color: red;
     border-radius: 10px;
     height: 25px; 
-    margin-left: -220px;
+    margin-left: -80%;
     background: white;
 }
 
@@ -475,6 +484,10 @@ nav a.active {
         width: 98%;
     }
 
+    #delete-song-button {
+        margin-left: 0;
+    }
+
     .toggle-posted-favorite > button {
         width: 50%;
         margin: 0 2% 0 2%;
@@ -487,17 +500,26 @@ nav a.active {
     }
 
     .new-song-form > label > input {
-        margin: 2% 0
+        margin: 2% 0;
+        width: 7.5rem;
+        height: 30px;
     }
 
     #submit-song-genre-select {
-        width: 50%;
+        width: 40%;
         margin-bottom: 2%;
+        height: 35px;
     }
 
     .new-song-form > button {
-        width: 50%;
+        width: 40%;
         margin: 1% 0;
+        height: 35px;
+    }
+
+    #new-genre-button {
+        width: 40%;
+        height: 35px;
     }
 
     #go-back-button {

@@ -33,7 +33,7 @@ function NewSongForm({
           onChange={onHandleChange}
         />
       </label>
-      <label>Genre:</label>
+      {/* <label>Genre:</label> */}
       <select
         name="genre_id"
         id="submit-song-genre-select"
@@ -52,17 +52,19 @@ function NewSongForm({
         ))}
       </select>
       {!genreClick && (
-        <button onClick={() => setGenreClick(true)}>New Genre</button>
+        <button id="new-genre-button" onClick={() => setGenreClick(true)}>
+          New Genre
+        </button>
       )}
       {genreClick && (
         <>
-          <label>genre name: </label>
+          {/* <label>genre name: </label> */}
           <input
             id="genre-name-input"
             type="text"
             onChange={(e) => setGenre_name(e.target.value)}
             value={genre_name}
-            placeholder="genre"
+            placeholder="genre name"
           />
           <span id="add-genre-button" onClick={handleAddGenre}>
             Add

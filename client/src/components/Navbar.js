@@ -21,6 +21,11 @@ function Navbar({ user, setUser }) {
         </NavLink>
       </div>
       <div className="right-side-nav">
+        {user && (
+          <NavLink to="/profile">
+            <h3>{user.username}</h3>
+          </NavLink>
+        )}
         <NavLink exact to="/list/songs">
           <h3>Songs</h3>
         </NavLink>
@@ -30,19 +35,14 @@ function Navbar({ user, setUser }) {
         <NavLink to="/list/songs/bygenres">
           <h3>Genre</h3>
         </NavLink>
-        {user && (
-          <NavLink to="/profile">
-            <h3>{user.username}</h3>
-          </NavLink>
-        )}
-        {user && (
-          <NavLink to="/">
-            <h3 onClick={handleLogout}>Logout</h3>
-          </NavLink>
-        )}
         {!user && (
           <NavLink to="/auth">
             <h3>Login</h3>
+          </NavLink>
+        )}
+        {user && (
+          <NavLink to="/list/songs">
+            <h3 onClick={handleLogout}>Logout</h3>
           </NavLink>
         )}
       </div>
