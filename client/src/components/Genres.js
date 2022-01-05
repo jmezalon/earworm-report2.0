@@ -10,7 +10,7 @@ function Genres({ songs, user, favorites, setFavorites, genres }) {
   );
   return (
     <div className="feed-container">
-      <h1>Filter by your favorite genre:</h1>
+      <h3>Filter by your favorite genre:</h3>
       <select
         className="genre-select"
         name="genreId"

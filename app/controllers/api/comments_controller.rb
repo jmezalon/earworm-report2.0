@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
     before_action :find_comment, only: [:update, :destroy]
     before_action :current_user, only: :create
     skip_before_action :authorize, only: :index

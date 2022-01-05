@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class Api::FavoritesController < ApplicationController
     before_action :find_favorite, only: :destroy
     before_action :current_user, only: :create
     skip_before_action :authorize, only: :index

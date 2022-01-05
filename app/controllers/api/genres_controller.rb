@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class Api::GenresController < ApplicationController
     skip_before_action :authorize, only: [:index, :show, :destroy]
 
     def create 

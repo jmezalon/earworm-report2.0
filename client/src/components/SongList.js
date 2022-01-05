@@ -7,7 +7,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   const [commentBody, setCommentBody] = useState("");
 
   useEffect(() => {
-    fetch("/comments")
+    fetch("api/comments")
       .then((r) => r.json())
       .then(setcomment);
   }, []);
@@ -18,7 +18,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
 
   function handleAddComment(e) {
     e.preventDefault();
-    fetch("/comments", {
+    fetch("api/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   }
 
   function handleDeleteComment(id) {
-    fetch(`/comments/${id}`, {
+    fetch(`api/comments/${id}`, {
       method: "DELETE",
     }).then(() => setcomment(comments.filter((c) => c.id !== id)));
   }
@@ -48,7 +48,7 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
   const favCount = favorites.filter((f) => f.song_id === song.id);
 
   function handleLike(id) {
-    fetch(`/favorites`, {
+    fetch(`api/favorites`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,14 +62,14 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
 
   function handleDeleteLike(id) {
     let favId = favorites.find((f) => f.song_id === id);
-    fetch(`/favorites/${favId.id}`, {
+    fetch(`api/favorites/${favId.id}`, {
       method: "DELETE",
     }).then(() => setFavorites(favorites.filter((f) => f.id !== favId.id)));
     findMyFavorite();
   }
 
   function handleDeleteSong() {
-    fetch(`/songs/${song.id}`, { method: "DELETE" }).then(() =>
+    fetch(`api/songs/${song.id}`, { method: "DELETE" }).then(() =>
       onDeleteSong(song.id)
     );
   }
@@ -132,10 +132,10 @@ function SongList({ song, user, favorites, setFavorites, onDeleteSong }) {
             <button>add</button>
           </form>
         </div>
-        {url === "/list/songs" && song.user.id !== user.id && (
+        {url === "/songs" && song.user.id !== user.id && (
           <p id="posted-by">
             posted by:{" "}
-            <Link to={`/list/users/${song.user.id}`}>{song.user.username}</Link>
+            <Link to={`/users/${song.user.id}`}>{song.user.username}</Link>
           </p>
         )}
         {url === "/profile" && song.user.id === user.id && (
