@@ -1,4 +1,4 @@
-class Api::SongsController < ApplicationController
+class SongsController < ApplicationController
     before_action :find_song, only: [:show, :update, :destroy]
     before_action :current_user, only: :create
     skip_before_action :authorize, only: [:index, :show, :destroy]

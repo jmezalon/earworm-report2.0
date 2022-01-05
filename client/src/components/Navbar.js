@@ -4,12 +4,12 @@ function Navbar({ user, setUser }) {
   const history = useHistory();
 
   function handleLogout() {
-    fetch("api/logout", {
+    fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        history.push("/songs");
+        history.push("/list/songs");
       }
     });
   }
@@ -26,13 +26,13 @@ function Navbar({ user, setUser }) {
             <h3>{user.username}</h3>
           </NavLink>
         )}
-        <NavLink exact to="/songs">
+        <NavLink exact to="/list/songs">
           <h3>Songs</h3>
         </NavLink>
-        <NavLink to="/trending">
+        <NavLink to="/list/songs/trending">
           <h3>Trending</h3>
         </NavLink>
-        <NavLink to="/bygenres">
+        <NavLink to="/list/songs/bygenres">
           <h3>Genre</h3>
         </NavLink>
         {!user && (
@@ -41,7 +41,7 @@ function Navbar({ user, setUser }) {
           </NavLink>
         )}
         {user && (
-          <NavLink to="/songs">
+          <NavLink to="/list/songs">
             <h3 onClick={handleLogout}>Logout</h3>
           </NavLink>
         )}

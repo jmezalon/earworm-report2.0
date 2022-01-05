@@ -1,13 +1,5 @@
 {
-  "name": "earworm-report",
-  "description": "Build scripts for Heroku",
-  "engines": {
-    "node": "16.13.0"
-  },
-  "scripts": {
-    "clean": "rm -rf public",
-    "build": "npm install --prefix client && npm run build --prefix client",
-    "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  "dependencies": {
+    "react-router-dom": "^5.3.0"
   }
 }

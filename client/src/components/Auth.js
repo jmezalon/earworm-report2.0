@@ -14,7 +14,7 @@ function Auth({ onLogin }) {
   function handleLogin(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("api/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function Auth({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/songs");
+        history.push("/list/songs");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -37,7 +37,7 @@ function Auth({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("api/signup", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function Auth({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/songs");
+        history.push("/list/songs");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

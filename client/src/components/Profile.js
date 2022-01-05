@@ -31,7 +31,7 @@ function Profile({
 
   function handleAddSong(e) {
     e.preventDefault();
-    fetch("api/songs", {
+    fetch("/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function Profile({
   }
 
   function handleAddGenre() {
-    fetch("api/genres", {
+    fetch("/genres", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

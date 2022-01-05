@@ -4,12 +4,12 @@ function MobileNav({ user, setUser }) {
   const history = useHistory();
   const justifyContent = user ? "space-between" : "space-evenly";
   function handleLogout() {
-    fetch("api/logout", {
+    fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        history.push("/songs");
+        history.push("/list/songs");
       }
     });
   }
@@ -29,7 +29,7 @@ function MobileNav({ user, setUser }) {
             <h4>{user.username}</h4>
           </NavLink>
         )}
-        <NavLink exact to="/songs">
+        <NavLink exact to="/list/songs">
           <h4>Songs</h4>
         </NavLink>
         {!user && (

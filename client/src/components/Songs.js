@@ -23,7 +23,7 @@ function Songs({ songs, user, favorites, setFavorites }) {
       </form>
       <div className="mobile-trending">
         <h4>
-          see who's <Link to="/trending">trending</Link> ...
+          see who's <Link to="/list/songs/trending">trending</Link> ...
         </h4>
       </div>
       {filterSong

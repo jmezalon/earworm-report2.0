@@ -4,7 +4,7 @@ function NoUserSongList({ song }) {
   const [comments, setcomment] = useState([]);
 
   useEffect(() => {
-    fetch("api/comments")
+    fetch("/comments")
       .then((r) => r.json())
       .then(setcomment);
     return () => {

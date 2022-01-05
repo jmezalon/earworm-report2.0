@@ -18,7 +18,7 @@ function App() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    fetch("api/me").then((res) => {
+    fetch("/me").then((res) => {
       if (res.ok) {
         res.json().then((user) => setUser(user));
       }
@@ -26,19 +26,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("api/songs")
+    fetch("/songs")
       .then((r) => r.json())
       .then(setSongs);
   }, []);
 
   useEffect(() => {
-    fetch("api/genres")
+    fetch("/genres")
       .then((r) => r.json())
       .then(setGenres);
   }, []);
 
   useEffect(() => {
-    fetch("api/favorites")
+    fetch("/favorites")
       .then((r) => r.json())
       .then(setFavorites);
   }, []);
@@ -67,7 +67,15 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/trending">
+        <Route exact path="/list/songs">
+          <Songs
+            user={user}
+            songs={songs}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
+        </Route>
+        <Route exact path="/list/songs/trending">
           <Trending
             user={user}
             songs={songs}
@@ -75,19 +83,11 @@ function App() {
             setFavorites={setFavorites}
           />
         </Route>
-        <Route exact path="/bygenres">
+        <Route exact path="/list/songs/bygenres">
           <Genres
             user={user}
             songs={songs}
             genres={genres}
-            favorites={favorites}
-            setFavorites={setFavorites}
-          />
-        </Route>
-        <Route exact path="/songs">
-          <Songs
-            user={user}
-            songs={songs}
             favorites={favorites}
             setFavorites={setFavorites}
           />
@@ -104,7 +104,7 @@ function App() {
             onAddSong={handleAddSong}
           />
         </Route>
-        <Route exact path="/users/:id">
+        <Route exact path="/list/users/:id">
           <Users
             user={user}
             songs={songs}
