@@ -1,6 +1,6 @@
 # earworm-report2.0
 
-[live](https://safe-cliffs-37697.herokuapp.com/)
+[live](https://earworm-report2-dd891851dfcc.herokuapp.com/)
 
 This project was a final challenge on my first bootcamp, Pursuit 3 years ago. This is the github link to the original [earworm-report](https://github.com/jmezalon/Earworm-report).
 
@@ -14,3 +14,8 @@ Overall, it was really fun working on this project again. I faced some challenge
 Go ahead, take a look at the app/code. Create an account, post songs, like them, comment on them and enjoy.
 
 
+*to create db and deploy*
+1. sudo service postgresql start
+2. heroku addons:add heroku-postgresql
+3. heroku run rake db:migrate
+4. heroku run rake db:seed
