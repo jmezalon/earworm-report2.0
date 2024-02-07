@@ -1,0 +1,48 @@
+Arguments: 
+  /home/mezalonm/.asdf/installs/nodejs/18.0.0/bin/node /home/mezalonm/.asdf/installs/yarn/1.22.19/bin/yarn.js add heroku-postbuild
+
+PATH: 
+  /home/mezalonm/.asdf/plugins/nodejs/shims:/home/mezalonm/.asdf/installs/nodejs/18.0.0/bin:/home/mezalonm/.asdf/installs/yarn/1.22.19/bin:/home/mezalonm/.rbenv/plugins/ruby-build/bin:/home/mezalonm/.rbenv/shims:/home/mezalonm/.rbenv/bin:/home/mezalonm/.asdf/shims:/home/mezalonm/.asdf/bin:/home/mezalonm/.vscode-server/bin/05047486b6df5eb8d44b2ecd70ea3bdf775fd937/bin/remote-cli:/home/mezalonm/.rvm/gems/ruby-3.3.0/bin:/home/mezalonm/.rvm/gems/ruby-3.3.0@global/bin:/home/mezalonm/.rvm/rubies/ruby-3.3.0/bin:/home/mezalonm/.local/bin:/home/mezalonm/.rbenv/plugins/ruby-build/bin:/home/mezalonm/.rbenv/shims:/home/mezalonm/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python312/Scripts/:/mnt/c/Python312/:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Python38/Scripts/:/mnt/c/Python38/:/mnt/c/Python37/Scripts/:/mnt/c/Python37/:/mnt/c/tools/ruby27/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Box/Box Edit/:/mnt/c/Program Files/Microsoft Office/Office14:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files/Azure Data Studio/bin:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Ruby32-x64/bin:/mnt/c/Users/mezalonm/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/mezalonm/AppData/Local/Programs/Git/cmd:/mnt/c/Users/mezalonm/AppData/Roaming/npm:/snap/bin:/home/mezalonm/.local/bin:/usr/pgsql-12.19/bin:/home/mezalonm/.rvm/bin:/home/mezalonm/.local/bin:/home/mezalonm/.rvm/bin:/home/mezalonm/.local/bin:/usr/pgsql-12.19/bin:/home/mezalonm/.rvm/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.0.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://artifactory.blackstone.com/artifactory/api/npm/npm/heroku-postbuild: not_found
+      at params.callback [as _callback] (/home/mezalonm/.asdf/installs/yarn/1.22.19/lib/cli.js:66145:18)
+      at self.callback (/home/mezalonm/.asdf/installs/yarn/1.22.19/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/home/mezalonm/.asdf/installs/yarn/1.22.19/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/home/mezalonm/.asdf/installs/yarn/1.22.19/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "heroku-deploy",
+    "description": "Build scripts for Heroku",
+    "engines": {
+      "node": "18.0.0"
+    },
+    "scripts": {
+      "clean": "rm -rf public",
+      "build": "npm install --prefix client && npm run build --prefix client",
+      "deploy": "cp -a client/build/. public/",
+      "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
